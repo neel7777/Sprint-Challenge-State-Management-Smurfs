@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { getData, removeSmurf } from '../actions';
@@ -31,6 +31,16 @@ max-height: 2rem;
 `
 
 const Smurfs = props => {
+    const [rem, setRem]=useState({
+        name: '',
+        age: '',
+        height: '',
+        id: Date.now()
+    });
+    const remove = e => {
+        e.preventDefault();
+        removeSmurf(rem);
+    }
     return (
         <>
         <Each>
@@ -43,7 +53,7 @@ const Smurfs = props => {
             <h1>Name: {smurf.name}</h1>
             <h2>Age: {smurf.age}</h2>
             <h2>Height: {smurf.height}</h2>
-            <button className="button" onClick={()=>removeSmurf(props.smurf)}>X</button>
+            <button className="button" onClick={remove}>X</button>
                        
             </Card> 
             

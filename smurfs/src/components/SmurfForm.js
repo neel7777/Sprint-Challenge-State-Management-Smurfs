@@ -39,11 +39,7 @@ const SmurfForm = props => {
         props.addSmurf(data);
         
     }
-
-    const remove = e => {
-        e.preventDefault();
-        props.removeSmurf(data);
-    }
+    
     
     return(
         <div>
